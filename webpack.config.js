@@ -4,7 +4,7 @@ var htmlWP = require('html-webpack-plugin');
 module.exports = {
 	
 	// 打包main.js，打包后的文件输出到dist目录中，起名为build.js
-	entry: './src/main.js',
+	entry: './src/js/main.js',
 	output: {
 		path: path.resolve(__dirname, './dist/'),
 		filename: 'build.js'
