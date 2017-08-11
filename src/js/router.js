@@ -1,6 +1,7 @@
 //对外到处一个路由实例
 import VueRouter from 'vue-router';
-import component from '../component/index.vue'
+//导入自己写的组件
+import component from '../component/index/index.vue'
 export default new VueRouter({
        routes:[
            {path:'/',redirect:'/index'},

@@ -1,12 +1,21 @@
 <template>  
     <main>
+        <v-header></v-header>
         <router-view></router-view>
-        <p>这是根组件</p>
+        <v-footer></v-footer>
     </main>
 </template>
 
 <script>
-    
+    import heardCom from './home/header.vue';
+    import footCom from './home/footer.vue'
+
+    export default{
+        components:{
+           'v-header':heardCom,
+           'v-footer':footCom
+        }
+    }
 </script>
 
 <style >
