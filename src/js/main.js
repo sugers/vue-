@@ -14,6 +14,7 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(MintUi);
 //导入自己的模块
+import './filter.js';
 import router from './router.js'
 
 //导入自己的组件
