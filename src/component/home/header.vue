@@ -2,7 +2,6 @@
    <header class="header">
      <mt-header fixed title="微商"></mt-header>
       <div></div>
-     
    </header>
 </template>
 
