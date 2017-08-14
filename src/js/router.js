@@ -16,7 +16,7 @@ export default new VueRouter({
            {path:'/news/:details/:id',component:Cdetails},
 
            //配图片路由
-           {path:'/photo/list',component:Cimglist,name:'listName'},
+           {path:'/photo/list/:id',component:Cimglist,name:'listName'},
            {path:'/photo/details/:id',component:Cimgdet,name:'detailsName'}
 
        ]
