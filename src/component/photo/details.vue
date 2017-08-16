@@ -11,8 +11,8 @@
       </div>
       <div class="mui-card-content">
         <ul class="mui-table-view mui-grid-view">
-		        <li class="mui-table-view-cell mui-media mui-col-xs-4" v-for="item in hums" :key="item.src">
-		            <img :src="item.src"/>
+		        <li class="mui-table-view-cell mui-media mui-col-xs-4" v-for="(item,index) in hums" :key="item.src" @click="$preview.open(index, hums)">
+		            <img class="preview-img"  :src="item.src" >
             </li>
 		    </ul>
       </div>
@@ -29,15 +29,17 @@
         return {
             info:{},
             hums:[],
-            title:"图片详情"
+            title:"图片详情",
         }
      },
+     props:['src'],
     methods:{
         getdetails(){
             console.log(this.$route.params.id)
             let url=config.imageInfo+this.$route.params.id
            this.$http.get(url).then(function(resp){
                this.info=resp.body.message[0]
+               
            })
         },
         getdetailsImage(){
@@ -46,6 +48,8 @@
               if(resp.body.status==0){
                     this.hums=resp.body.message.map(function(photo,i){
                          photo.src = config.imgDomain + photo.src;
+                         photo.w=600;
+                         photo.h=400;
                         return photo;
                     })
               }

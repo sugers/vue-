@@ -8,6 +8,11 @@ import Cdetails from '../component/news/details.vue'
 //图片导入
 import Cimgdet from '../component/photo/details.vue';
 import Cimglist from '../component/photo/list.vue'
+
+//商品列表导入
+import Cgoodslist from '../component/goodslist/list.vue'
+import Cdoogsdetail from '../component/goodslist/details.vue'
+
 export default new VueRouter({
        routes:[
            {path:'/',redirect:'/index'},
@@ -17,7 +22,11 @@ export default new VueRouter({
 
            //配图片路由
            {path:'/photo/list/:id',component:Cimglist,name:'listName'},
-           {path:'/photo/details/:id',component:Cimgdet,name:'detailsName'}
+           {path:'/photo/details/:id',component:Cimgdet,name:'detailsName'},
+
+           //配商品列表数据
+           {path:'/goodslist/list',component:Cgoodslist},
+           {path:'/goodslist/details/:id',component:Cdoogsdetail}
 
        ]
 })

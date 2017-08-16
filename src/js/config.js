@@ -12,5 +12,10 @@ export default {
     imageList:others+'/api/getimages/',
     imagecategory:others+'/api/getimgcategory',
     imageThu:others+'/api/getthumimages/',
-    imageInfo:others+'/api/getimageInfo/'
+    imageInfo:others+'/api/getimageInfo/',
+
+    //商品列表区
+    goodslist:others+'/api/getgoods',
+    goodsdetails:others+'/api/getthumimages/',
+    goodsgetinfo:others+'/api/goods/getinfo/'
 }

@@ -12,6 +12,8 @@
         </div>
         </div>
         <v-comment :id="id">  </v-comment>
+
+        
     </section>
 </template>
 
