@@ -13,6 +13,9 @@ import Cimglist from '../component/photo/list.vue'
 import Cgoodslist from '../component/goodslist/list.vue'
 import Cdoogsdetail from '../component/goodslist/details.vue'
 
+import Cgoodsintroduce from '../component/goodslist/intro.vue'
+import Cgoodscomment from '../component/goodslist/com.vue'
+
 export default new VueRouter({
        routes:[
            {path:'/',redirect:'/index'},
@@ -26,7 +29,11 @@ export default new VueRouter({
 
            //配商品列表数据
            {path:'/goodslist/list',component:Cgoodslist},
-           {path:'/goodslist/details/:id',component:Cdoogsdetail}
+           {path:'/goodslist/details/:id',component:Cdoogsdetail},
+
+           {path:'/goodslist/intro/:id',component:Cgoodsintroduce},
+           {path:'/goodslist/com/:id',component:Cgoodscomment}
+
 
        ]
 })

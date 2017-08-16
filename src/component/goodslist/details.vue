@@ -9,7 +9,7 @@
                 </mt-swipe-item>    
         </mt-swipe>
 
-        <div class="mui-card" v-for="(v, i) in goods" :key="i">
+        <div class="mui-card" v-for="(v, i) in goods" :key="v.id">
 				<div class="mui-card-header">{{v.title}}</div>
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
@@ -18,22 +18,28 @@
                         <div>
                            <span class="three">购买数量:</span>
                         <div class="mui-numbox">
-                            <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-                            <input class="mui-input-numbox" type="number" placeholder="0">
-                            <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+                            <button @click="reduce" class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+                           <div class="count"></div>
+                            <button @click="add" class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 				        </div>
                         </div>
                         <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
-                        <button type="button" class="mui-btn mui-btn-primary">加入购物车</button>
+                        <button @click="shopcar" type="button" class="mui-btn mui-btn-primary">加入购物车</button>
 					</div>
 				</div>
+        <div class="five">
+              <router-link :to="'/goodslist/intro/' + v.id">
+                  <button type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined five">图文介绍</button> 
+               </router-link>
+          </div>
+             <router-link :to="'/goodslist/com/' + v.id">
+                 <button type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined five">商品评论</button>
+             </router-link>
 		</div>
 
-          <div class="five">
-              <button type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">图文介绍</button>
-             <button type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined five">商品评论</button>
-          </div>
-      
+       
+        
+        
   </section>
 </template>
 
@@ -45,7 +51,8 @@ import config from '../../js/config.js';
             return{
                list:[],
                goods:[],
-               title:'商品信息'
+               title:'商品信息',
+               count:1
             } 
         },
         methods:{
@@ -68,12 +75,14 @@ import config from '../../js/config.js';
                    this.goods=resp.body.message
                }
            })
-        }
+        },
        
     },
      created(){
             this.getdetails(),
-            this. addgoods()
+            this. addgoods(),
+            this.reduce(),
+            this.add()
         },
         components: {
           'v-title':listTitle
@@ -99,11 +108,18 @@ import config from '../../js/config.js';
           }
        }
     .five{
-         margin-bottom:65px;
+         margin-bottom:50px;
          input[type='submit'], .mui-btn-primary, .mui-btn-blue {
          position:relative;
           margin-top:20px;
       }
+    }
+    input[type='submit'], .mui-btn-primary, .mui-btn-blue{
+        margin-top:20px;
+    }
+    .count{
+        text-align:center;
+        line-height:35px;
     }
       
    }

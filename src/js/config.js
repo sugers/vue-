@@ -17,5 +17,6 @@ export default {
     //商品列表区
     goodslist:others+'/api/getgoods',
     goodsdetails:others+'/api/getthumimages/',
-    goodsgetinfo:others+'/api/goods/getinfo/'
+    goodsgetinfo:others+'/api/goods/getinfo/',
+    goodsgetdesc:others+'/api/goods/getdesc/'
 }
