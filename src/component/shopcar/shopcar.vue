@@ -97,6 +97,7 @@
               this.list[0].selected = !this.list[0].selected;
               this.list[0].selected = !this.list[0].selected;
               goodsStorage.set(id, total);
+                document.querySelector('.mui-badge').innerHTML = goodsStorage.get();
            }
 
         },

@@ -16,6 +16,7 @@ import Cdoogsdetail from '../component/goodslist/details.vue'
 import Cgoodsintroduce from '../component/goodslist/intro.vue'
 import Cgoodscomment from '../component/goodslist/com.vue'
 import Cshopcar from '../component/shopcar/shopcar.vue'
+import Cself from '../component/selfcenter/self.vue'
 export default new VueRouter({
        routes:[
            {path:'/',redirect:'/index'},
@@ -28,14 +29,17 @@ export default new VueRouter({
            {path:'/photo/details/:id',component:Cimgdet,name:'detailsName'},
 
            //配商品列表数据
-           {path:'/goodslist/list',component:Cgoodslist},
+           {path:'/goodslist/list/:id',component:Cgoodslist},
            {path:'/goodslist/details/:id',component:Cdoogsdetail},
 
            {path:'/goodslist/intro/:id',component:Cgoodsintroduce},
            {path:'/goodslist/com/:id',component:Cgoodscomment},
 
             //购物车
-            {path:'/shopcar/shopcar',component:Cshopcar}
+            {path:'/shopcar/shopcar',component:Cshopcar},
+
+            //个人中心
+            {path:'/selfcenter/self',component:Cself}
 
        ]
 })
