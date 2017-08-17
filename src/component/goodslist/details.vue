@@ -17,14 +17,12 @@
                         <p class="two">销售价:<strong>￥{{v.sell_price}}</strong></p>
                         <div>
                            <span class="three">购买数量:</span>
-                        <div class="mui-numbox">
-                            <button @click="reduce" class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-                           <div class="count"></div>
-                            <button @click="add" class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-				        </div>
+                         <v-numbox :initVal="total" @change="upTotal"></v-numbox>
                         </div>
-                        <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
-                        <button @click="shopcar" type="button" class="mui-btn mui-btn-primary">加入购物车</button>
+                        <router-link :to="'/shopcar/shopcar'">
+                             <button type="button" class="mui-btn mui-btn-primary">立即购买</button>
+                         </router-link>
+                        <button @click="shopcar" type="button" class="mui-btn mui-btn-primary" >加入购物车</button>
 					</div>
 				</div>
         <div class="five">
@@ -44,15 +42,18 @@
 </template>
 
 <script>
-import config from '../../js/config.js';
- import listTitle from '../common/title.vue'
+ import config from '../../js/config.js';
+ import goodsStorage from '../../js/model/goods.js';
+ import listTitle from '../common/title.vue';
+ import numbox from '../common/addnumber.vue';
     export default{
         data(){
             return{
                list:[],
                goods:[],
                title:'商品信息',
-               count:1
+               id:this.$route.params.id,
+               total:goodsStorage.get(this.$route.params.id)
             } 
         },
         methods:{
@@ -76,16 +77,22 @@ import config from '../../js/config.js';
                }
            })
         },
+        upTotal(val){
+           this.total=val
+        },
+        shopcar(){
+            goodsStorage.set(this.id, this.total);
+           document.querySelector('.mui-badge').innerHTML = goodsStorage.get();
+        }
        
     },
      created(){
             this.getdetails(),
-            this. addgoods(),
-            this.reduce(),
-            this.add()
+            this. addgoods()
         },
         components: {
-          'v-title':listTitle
+          'v-title':listTitle,
+          'v-numbox': numbox
       }
     }
 </script>

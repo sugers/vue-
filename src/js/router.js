@@ -15,7 +15,7 @@ import Cdoogsdetail from '../component/goodslist/details.vue'
 
 import Cgoodsintroduce from '../component/goodslist/intro.vue'
 import Cgoodscomment from '../component/goodslist/com.vue'
-
+import Cshopcar from '../component/shopcar/shopcar.vue'
 export default new VueRouter({
        routes:[
            {path:'/',redirect:'/index'},
@@ -32,8 +32,10 @@ export default new VueRouter({
            {path:'/goodslist/details/:id',component:Cdoogsdetail},
 
            {path:'/goodslist/intro/:id',component:Cgoodsintroduce},
-           {path:'/goodslist/com/:id',component:Cgoodscomment}
+           {path:'/goodslist/com/:id',component:Cgoodscomment},
 
+            //购物车
+            {path:'/shopcar/shopcar',component:Cshopcar}
 
        ]
 })

@@ -9,12 +9,12 @@
           <span class="mui-icon mui-icon-extra mui-icon-extra-gift"></span>
           <span class="mui-tab-label">商品购买</span>
         </a>
-        <a class="mui-tab-item" href="#tabbar-with-contact">
+        <router-link to="/shopcar/shopcar" class="mui-tab-item" href="#tabbar-with-contact">
           <span class="mui-icon mui-icon-extra mui-icon-extra-express">
-            <span class="mui-badge">0</span>
+            <span class="mui-badge">{{total}}</span>
           </span>
-          <span class="mui-tab-label">购物车</span>
-        </a>
+          <span class="mui-tab-label" >购物车</span>
+        </router-link>
         <a class="mui-tab-item" href="#tabbar-with-map">
           <span class="mui-icon mui-icon-contact"></span>
           <span class="mui-tab-label">个人中心</span>
@@ -25,8 +25,13 @@
 </template>
 
 <script>
+import total from "../../js/model/goods.js"
     export default {
-  
+         data(){
+           return{
+             total:total.get()
+           }
+         }
 }
 </script>
 

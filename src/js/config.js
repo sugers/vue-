@@ -18,5 +18,8 @@ export default {
     goodslist:others+'/api/getgoods',
     goodsdetails:others+'/api/getthumimages/',
     goodsgetinfo:others+'/api/goods/getinfo/',
-    goodsgetdesc:others+'/api/goods/getdesc/'
+    goodsgetdesc:others+'/api/goods/getdesc/',
+
+    //购物车
+    shopcarlist:others+'/api/goods/getshopcarlist/'
 }
